@@ -7,7 +7,7 @@ The main use case for our API is to calculate real time statistic from the last 
 How to run
 
 You can run the application from Maven. To build the application you will need Maven and Java8. 
-After few seconds the application should be available, for example http://localhost:8080/statistics.
+  After few seconds the application should be available, for example http://localhost:8080/statistics.
 
 Maven
 Form the repository base folder run:
