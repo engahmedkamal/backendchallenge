@@ -4,11 +4,13 @@ import com.n26.backendchallenge.model.Statistic;
 import com.n26.backendchallenge.model.Transaction;
 import com.n26.backendchallenge.service.exception.ExpiredTransactionException;
 import com.n26.backendchallenge.service.interfaces.TransactionManager;
-import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class TransactionManagerController {
@@ -17,7 +19,6 @@ public class TransactionManagerController {
     private TransactionManager transactionManager;
 
     @PostMapping(path = "/transactions")
-    @ApiOperation(value = "Transactions", notes = "addTransaction")
     public ResponseEntity<Void> addTransaction(@RequestBody Transaction transaction) {
         try{
             transactionManager.addTransaction(transaction);
@@ -28,7 +29,6 @@ public class TransactionManagerController {
     }
 
     @GetMapping(path = "/statistics")
-    @ApiOperation(value = "Calculate statistics", notes = "Calculate statistics")
     public Statistic calculateStatistic(){
         return transactionManager.calculateStatistic();
     }
